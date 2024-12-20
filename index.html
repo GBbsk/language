@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Estudos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 onclick="voltarParaInicio()" style="cursor: pointer;">LANGUAGE TOOLS</h1>
+        </header>
+        
+        <nav class="modulos">
+            <h2>Módulos</h2>
+            <ul id="lista-modulos">
+                <li class="modulo" onclick="selecionarModulo(1)">
+                    <div class="modulo-header">
+                        <h3>Módulo 1: Fundação</h3>
+                        <span class="seta">▼</span>
+                    </div>
+                    <ul class="lista-submodulos" style="display: none;"></ul>
+                </li>
+                <li class="modulo" onclick="selecionarModulo(2)">
+                    <div class="modulo-header">
+                        <h3>Módulo 2: Mineração</h3>
+                        <span class="seta">▼</span>
+                    </div>
+                    <ul class="lista-submodulos" style="display: none;"></ul>
+                </li>
+                <li class="modulo" onclick="selecionarModulo(3)">
+                    <div class="modulo-header">
+                        <h3>Módulo 3: Mar</h3>
+                        <span class="seta">▼</span>
+                    </div>
+                    <ul class="lista-submodulos" style="display: none;"></ul>
+                </li>
+                <li class="modulo" onclick="selecionarModulo(4)">
+                    <div class="modulo-header">
+                        <h3>Módulo 4: Transcrição</h3>
+                        <span class="seta">▼</span>
+                    </div>
+                    <ul class="lista-submodulos" style="display: none;"></ul>
+                </li>
+                <li class="modulo" onclick="selecionarModulo(5)">
+                    <div class="modulo-header">
+                        <h3>Módulo 5: Monolíngue</h3>
+                        <span class="seta">▼</span>
+                    </div>
+                    <ul class="lista-submodulos" style="display: none;"></ul>
+                </li>
+                <li class="modulo" onclick="selecionarModulo(6)">
+                    <h3>Módulo 6: Escrita e Fala</h3>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="conteudo">
+            <div id="conteudo-inicial" style="display: block;">
+                <h2>Selecione um módulo para começar</h2>
+                <div class="imagem-inicial">
+                    <img src="imagens do projeto\imagem.jpg.png">
+                </div>
+            </div>
+
+            <div id="conteudo-aula" style="display: none;">
+                <div class="aula-wrapper">
+                    <div id="aula-container">
+                        <h2 class="aula-titulo"></h2>
+                        <div class="video-container">
+                            <!-- O iframe do YouTube será inserido aqui -->
+                        </div>
+                        
+                        <div class="botoes-container">
+                            <div class="botoes-wrapper">
+                                <button id="btn-downloads">
+                                    <i class="fas fa-download"></i> Downloads
+                                </button>
+                                <button id="btn-audios">
+                                    <i class="fas fa-headphones"></i> Áudios
+                                </button>
+                            </div>
+                            
+                            <div id="materiais-container">
+                                <div id="downloads-container" class="downloads-container">
+                                    <h3>Downloads Disponíveis</h3>
+                                    <div class="downloads-lista"></div>
+                                </div>
+                                
+                                <div id="audios-container" class="audios-container">
+                                    <h3>Áudios da Aula</h3>
+                                    <div class="audio-lista"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="toggle-proximas-aulas">
+                        <span class="seta-proximas">▶</span>
+                    </button>
+
+                    <div class="proximas-aulas" style="display: none;">
+                        <div class="proximas-header">
+                            <h3>Próximas Aulas</h3>
+                        </div>
+                        <ul id="lista-proximas-aulas">
+                            <!-- Lista de próximas aulas será preenchida via JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="pdf-viewer" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999;">
+        <div style="position: relative; width: 100%; height: 100%;">
+            <button onclick="document.getElementById('pdf-viewer').style.display='none'" style="position: absolute; right: 10px; top: 10px; z-index: 10000; padding: 10px;">Fechar</button>
+            <iframe id="pdf-iframe" style="width: 100%; height: 100%; border: none;"></iframe>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
